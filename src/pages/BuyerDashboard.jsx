@@ -1,0 +1,5 @@
+import { Link } from "react-router-dom";
+import { Search, Package, Heart, Send, ArrowUpRight } from "lucide-react";
+import ProductCard from "../components/ProductCard";
+import { products } from "../services/data";
+export default function BuyerDashboard(){return <div className="workspace"><div className="dashboard-top"><div><span className="eyebrow">BUYER DASHBOARD</span><h1>Find your next collection.</h1><p>Discover verified artisans and products for your business.</p></div><Link to="/marketplace" className="btn btn-primary"><Search size={17}/> Browse Market</Link></div><div className="stat-grid buyer-stats">{[[Heart,"8","Saved Products"],[Send,"3","Enquiries Sent"],[Package,"2","Orders"],[ArrowUpRight,"12","Recommended"]].map(([I,v,l])=><div className="stat-card" key={l}><I/><strong>{v}</strong><span>{l}</span></div>)}</div><div className="dashboard-section-head"><div><span className="eyebrow">RECOMMENDED</span><h2>Products worth discovering</h2></div></div><div className="product-grid">{products.slice(2,6).map(p=><ProductCard key={p.id} product={p}/>)}</div></div>}
